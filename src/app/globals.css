@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Tech Trix — design tokens (Tailwind v4 @theme)
+   Edit palette / radii / fonts here; utilities (bg-iris, text-amber, …) follow.
+---------------------------------------------------------------------------- */
+@theme {
+  /* Surfaces */
+  --color-base: #0a0d17;
+  --color-surface: #121829;
+  --color-surface-2: #161e35;
+  --color-elevated: #1b2540;
+
+  /* Text */
+  --color-ink: #eceef6;
+  --color-muted: #9aa1ba;
+
+  /* Hairlines */
+  --color-hairline: rgba(255, 255, 255, 0.08);
+  --color-hairline-strong: rgba(255, 255, 255, 0.14);
+
+  /* Accents */
+  --color-amber: #ffb23e;
+  --color-iris: #7b6cf6;
+  --color-mint: #4fd1b5;
+
+  /* Fonts (wired to next/font CSS vars in layout.tsx) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Radii */
+  --radius-card: 16px;
+  --radius-chip: 14px;
+
+  /* Easing + timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Container */
+  --breakpoint-3xl: 120rem;
+}
+
+/* ----------------------------------------------------------------------------
+   Base
+---------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: auto; /* Lenis owns smooth scroll */
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-iris) 40%, transparent);
+    color: #fff;
+  }
+
+  /* Visible focus for keyboard users only */
+  :focus-visible {
+    outline: 2px solid var(--color-iris);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Headings default to the display face */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-base); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-elevated);
+    border-radius: 999px;
+    border: 2px solid var(--color-base);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #2a3760; }
+}
+
+/* ----------------------------------------------------------------------------
+   Utilities & component primitives
+---------------------------------------------------------------------------- */
+@layer utilities {
+  .text-gradient {
+    background-image: linear-gradient(100deg, var(--color-amber), var(--color-iris));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Glass surface used by floating cards / nav */
+  .glass {
+    background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid var(--color-hairline);
+  }
+
+  .glow-iris { box-shadow: 0 0 0 1px var(--color-hairline), 0 24px 60px -20px color-mix(in srgb, var(--color-iris) 55%, transparent); }
+  .glow-amber { box-shadow: 0 0 0 1px var(--color-hairline), 0 24px 60px -20px color-mix(in srgb, var(--color-amber) 50%, transparent); }
+
+  /* Eyebrow / label / data utility */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  /* Long soft shadow for layered depth */
+  .shadow-depth {
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      0 12px 28px -8px rgba(0, 0, 0, 0.45),
+      0 40px 80px -32px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Hairline divider */
+  .hairline { border-color: var(--color-hairline); }
+
+  /* Site-wide grain overlay */
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Marquee (infinite, pause on hover) — used by trust strip & tech cloud
+---------------------------------------------------------------------------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 32s) linear infinite;
+}
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* ----------------------------------------------------------------------------
+   Reduced motion — disable all non-essential motion
+---------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee { animation: none !important; }
+}
