@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Tech Trix Technologies is a team of passionate technologists delivering innovative web, mobile, and enterprise software solutions since 2025.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Tech Trix Technologies",
+    description:
+      "Meet the team behind Tech Trix Technologies — delivering innovative web, mobile, and enterprise software since 2025.",
+    url: "/about",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {

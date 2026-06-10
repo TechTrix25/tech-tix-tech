@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Web development, mobile apps, enterprise software, ERP & CRM, progressive web apps, and IT consulting — a comprehensive range of technology services from Tech Trix.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services | Tech Trix Technologies",
+    description:
+      "Web, mobile, enterprise software, ERP & CRM, PWAs, and IT consulting — comprehensive technology services from Tech Trix.",
+    url: "/services",
+    type: "website",
+  },
 };
 
 export default function ServicesPage() {

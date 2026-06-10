@@ -78,6 +78,39 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      name: site.name,
+      url: site.url,
+      logo: `${site.url}/logo.png`,
+      description: site.description,
+      foundingDate: String(site.founded),
+      email: site.contact.email,
+      telephone: site.contact.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: site.contact.address.line1,
+        addressLocality: site.contact.address.city,
+        postalCode: site.contact.address.pincode,
+        addressRegion: site.contact.address.region,
+        addressCountry: site.contact.address.country,
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      description: site.description,
+      publisher: { "@id": `${site.url}/#organization` },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -89,6 +122,10 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="grain">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <SmoothScrollProvider>
           <Nav />
           <main id="main">{children}</main>

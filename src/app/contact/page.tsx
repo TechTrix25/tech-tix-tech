@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Have questions or ready to start your project? Reach out to the Tech Trix team in Coimbatore, Tamil Nadu.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact | Tech Trix Technologies",
+    description:
+      "Ready to start your project? Reach out to the Tech Trix team in Coimbatore, Tamil Nadu.",
+    url: "/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

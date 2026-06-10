@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title: "Work",
   description:
     "Explore Tech Trix's latest projects — web platforms, mobile apps, and custom software — and the results we've delivered for our clients.",
+  alternates: { canonical: "/portfolio" },
+  openGraph: {
+    title: "Our Work | Tech Trix Technologies",
+    description:
+      "Explore Tech Trix's latest projects — web platforms, mobile apps, and custom software built for real client results.",
+    url: "/portfolio",
+    type: "website",
+  },
 };
 
 export default function PortfolioPage() {
