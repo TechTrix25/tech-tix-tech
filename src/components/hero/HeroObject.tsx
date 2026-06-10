@@ -46,12 +46,24 @@ function hasWebGL(): boolean {
 export function HeroObject() {
   const reduced = usePrefersReducedMotion();
   const [webgl, setWebgl] = useState<boolean | null>(null);
+  // Gate the (heavy) three.js bundle behind browser idle time so it never
+  // competes with first paint / LCP. The CSS fallback shows until then.
+  const [idle, setIdle] = useState(false);
 
   useEffect(() => {
     setWebgl(hasWebGL());
+
+    const ric =
+      window.requestIdleCallback ??
+      ((cb: () => void) => window.setTimeout(cb, 1));
+    const cic =
+      window.cancelIdleCallback ?? ((id: number) => window.clearTimeout(id));
+    const handle = ric(() => setIdle(true), { timeout: 2500 });
+    return () => cic(handle as number);
   }, []);
 
-  // Decided yet? show fallback. No WebGL or reduced motion → keep fallback.
-  if (webgl === null || !webgl || reduced) return <Fallback />;
+  // Show the lightweight fallback until WebGL is confirmed, the browser is
+  // idle, and motion is allowed. No WebGL or reduced motion → keep fallback.
+  if (webgl === null || !webgl || reduced || !idle) return <Fallback />;
   return <HeroObjectScene />;
 }

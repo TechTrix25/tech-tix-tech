@@ -25,11 +25,11 @@ function fibonacciSphere(n: number, radius: number) {
 }
 
 /** A rotating sphere of connected points — a tech "network globe". */
-function Globe() {
+function Globe({ count }: { count: number }) {
   const group = useRef<THREE.Group>(null);
 
-  const { pointsGeo, pointsMat, linesGeo, sprite } = useMemo(() => {
-    const N = 460;
+  const { pointsGeo, pointsMat, linesGeo } = useMemo(() => {
+    const N = count;
     const R = 1.7;
     const pts = fibonacciSphere(N, R);
 
@@ -98,8 +98,8 @@ function Globe() {
       new THREE.BufferAttribute(new Float32Array(linePos), 3)
     );
 
-    return { pointsGeo, pointsMat, linesGeo, sprite };
-  }, []);
+    return { pointsGeo, pointsMat, linesGeo };
+  }, [count]);
 
   useFrame((state, delta) => {
     if (!group.current) return;
@@ -133,17 +133,26 @@ function Globe() {
 }
 
 export default function HeroObjectScene() {
+  // Scale the work to the device. Mobile gets fewer points (the neighbour
+  // computation is O(N²)), a lower pixel ratio, and skips the costly bloom
+  // post-processing pass — keeping the effect cheap where it matters most.
+  const isMobile =
+    typeof window !== "undefined" && window.innerWidth < 768;
+  const count = isMobile ? 300 : 460;
+
   return (
     <Canvas
       camera={{ position: [0, 0, 5], fov: 38 }}
-      dpr={[1, 1.75]}
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      dpr={isMobile ? [1, 1.25] : [1, 1.75]}
+      gl={{ antialias: !isMobile, alpha: true, powerPreference: "high-performance" }}
       style={{ background: "transparent" }}
     >
-      <Globe />
-      <EffectComposer>
-        <Bloom intensity={1.1} luminanceThreshold={0.1} luminanceSmoothing={0.5} mipmapBlur />
-      </EffectComposer>
+      <Globe count={count} />
+      {!isMobile && (
+        <EffectComposer>
+          <Bloom intensity={1.1} luminanceThreshold={0.1} luminanceSmoothing={0.5} mipmapBlur />
+        </EffectComposer>
+      )}
     </Canvas>
   );
 }
