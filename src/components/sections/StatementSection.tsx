@@ -45,7 +45,7 @@ export function StatementSection() {
   );
 
   return (
-    <section ref={root} className="relative z-10 px-6 py-28 sm:py-40">
+    <section ref={root} className="relative z-10 px-6 py-20 sm:py-40">
       <div className="mx-auto max-w-5xl">
         <p className="eyebrow mb-8">Our philosophy</p>
         <h2

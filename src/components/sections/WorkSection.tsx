@@ -35,7 +35,7 @@ export function WorkSection() {
   const activeProject = projects.find((p) => p.id === active);
 
   return (
-    <section id="work" className="relative z-10 py-24 sm:py-32" onMouseMove={onMove}>
+    <section id="work" className="relative z-10 py-16 sm:py-32" onMouseMove={onMove}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
@@ -49,7 +49,7 @@ export function WorkSection() {
           </ButtonLink>
         </div>
 
-        <div className="mt-14 border-t border-hairline">
+        <div className="mt-10 border-t border-hairline sm:mt-14">
           {projects.map((project) => (
             <a
               key={project.id}

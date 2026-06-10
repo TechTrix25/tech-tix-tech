@@ -4,15 +4,15 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function StatsSection() {
   return (
-    <section className="relative z-10 overflow-hidden py-20">
+    <section className="relative z-10 overflow-hidden py-16 sm:py-20">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_120%_at_50%_0%,rgba(123,108,246,0.12),transparent)]"
       />
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-12 px-6 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 px-6 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-4">
         {stats.map((stat, i) => (
           <Reveal key={stat.label} delay={i * 0.06} className="text-center">
-            <p className="font-display text-5xl font-semibold text-ink sm:text-6xl">
+            <p className="font-display text-4xl font-semibold text-ink sm:text-5xl lg:text-6xl">
               <span className="text-gradient">
                 <CountUp value={stat.value} suffix={stat.suffix} />
               </span>

@@ -75,7 +75,7 @@ export function Hero() {
   return (
     <section
       ref={root}
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-16"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-12 sm:pb-16"
     >
       <GradientOrbs />
       <div
@@ -83,7 +83,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 opacity-[0.25] [background-image:linear-gradient(var(--color-hairline)_1px,transparent_1px),linear-gradient(90deg,var(--color-hairline)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]"
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-8 px-6 lg:grid-cols-2 lg:gap-12">
         {/* Copy */}
         <div className="hero-copy">
           <p className="eyebrow mb-5 flex items-center gap-2">
@@ -130,7 +130,7 @@ export function Hero() {
             </span>
           </div>
 
-          <div className="hero-cue mt-14 flex items-center gap-3 text-sm text-muted">
+          <div className="hero-cue mt-10 flex items-center gap-3 text-sm text-muted sm:mt-14">
             <ArrowDown className="h-4 w-4 animate-bounce" />
             Scroll to explore
           </div>

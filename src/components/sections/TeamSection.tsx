@@ -6,7 +6,7 @@ import { SmartImage } from "@/components/ui/SmartImage";
 /** Team portrait cards with a hover reveal of role + name. */
 export function TeamSection() {
   return (
-    <section className="relative z-10 py-24 sm:py-32">
+    <section className="relative z-10 py-16 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="The people"
@@ -15,7 +15,7 @@ export function TeamSection() {
           subtitle="Passionate technologists who design, build, and ship — close to every project."
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-5 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-14 sm:gap-5 lg:grid-cols-4">
           {team.map((member, i) => (
             <Reveal key={i} delay={i * 0.06}>
               <div className="group relative aspect-[3/4] overflow-hidden rounded-[var(--radius-card)] border border-hairline">

@@ -26,8 +26,8 @@ export default function AboutPage() {
       />
 
       {/* Our story */}
-      <section className="relative z-10 py-16 sm:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
+      <section className="relative z-10 py-12 sm:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2 lg:gap-12">
           <div>
             <SectionHeading eyebrow="Our story" title="Built on a simple" highlight="mission" />
             <div className="mt-6 space-y-4 text-pretty text-muted">
@@ -53,7 +53,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="relative z-10 py-16 sm:py-24">
+      <section className="relative z-10 py-12 sm:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="What we stand for"
@@ -61,7 +61,7 @@ export default function AboutPage() {
             highlight="everything we do"
             align="center"
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((value, i) => {
               const Icon = icons[value.icon] ?? icons.Star;
               return (
@@ -83,8 +83,8 @@ export default function AboutPage() {
       </section>
 
       {/* Why choose us */}
-      <section className="relative z-10 py-16 sm:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
+      <section className="relative z-10 py-12 sm:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2 lg:gap-12">
           <SectionHeading
             eyebrow="Why Tech Trix"
             title="Innovative, tech-driven"

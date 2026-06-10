@@ -25,7 +25,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="relative z-10 border-t border-hairline bg-surface/40">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-6 py-12 sm:py-16">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
@@ -104,7 +104,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-8 text-sm text-muted sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-8 text-sm text-muted sm:mt-14 sm:flex-row">
           <p>
             &copy; {site.founded}
             {new Date().getFullYear() > site.founded

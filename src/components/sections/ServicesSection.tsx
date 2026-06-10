@@ -77,7 +77,7 @@ export function ServicesSection() {
   );
 
   return (
-    <section id="services" className="relative z-10 py-20 sm:py-32">
+    <section id="services" className="relative z-10 py-16 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="What we do"

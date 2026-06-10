@@ -13,7 +13,7 @@ export function PageHero({
   subtitle: string;
 }) {
   return (
-    <section className="relative overflow-hidden px-6 pt-40 pb-16 text-center sm:pb-20">
+    <section className="relative overflow-hidden px-6 pt-32 pb-12 text-center sm:pt-40 sm:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_90%_at_50%_-10%,rgba(123,108,246,0.18),transparent)]"

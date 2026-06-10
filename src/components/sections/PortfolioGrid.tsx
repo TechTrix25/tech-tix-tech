@@ -16,7 +16,7 @@ export function PortfolioGrid() {
   return (
     <div className="mx-auto max-w-7xl px-6">
       {/* Filter pills */}
-      <div className="mb-12 flex flex-wrap justify-center gap-2">
+      <div className="mb-8 flex flex-wrap justify-center gap-2 sm:mb-12">
         {workCategories.map((cat) => (
           <button
             key={cat.id}

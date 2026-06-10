@@ -6,7 +6,7 @@ import { SmartImage } from "@/components/ui/SmartImage";
 
 export function TestimonialsSection() {
   return (
-    <section className="relative z-10 overflow-hidden py-24 sm:py-32">
+    <section className="relative z-10 overflow-hidden py-16 sm:py-32">
       {/* floating accents */}
       <div
         aria-hidden
@@ -26,7 +26,7 @@ export function TestimonialsSection() {
           align="center"
         />
 
-        <div className="mt-16 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:mt-16 md:grid-cols-3">
           {testimonials.map((t, i) => (
             <Reveal key={t.author} delay={i * 0.08}>
               <figure className="flex h-full flex-col rounded-[var(--radius-card)] border border-hairline bg-surface/50 p-7">

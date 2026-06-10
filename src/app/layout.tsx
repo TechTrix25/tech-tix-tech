@@ -52,6 +52,7 @@ export const metadata: Metadata = {
     "business software",
   ],
   robots: { index: true, follow: true },
+  verification: { google: "teTKqXJyoPQD05iytXjxUqz_JgK5KDdPg8SO3mTYRp4" },
   // Icons resolved by file convention: src/app/icon.svg + src/app/apple-icon.png
   openGraph: {
     title: "Tech Trix Technologies – Now Live",

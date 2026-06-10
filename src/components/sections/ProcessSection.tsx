@@ -52,7 +52,7 @@ export function ProcessSection() {
   );
 
   return (
-    <section id="process" className="relative z-10 py-24 sm:py-32">
+    <section id="process" className="relative z-10 py-16 sm:py-32">
       <div ref={root} className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="How we work"
@@ -62,7 +62,7 @@ export function ProcessSection() {
           align="center"
         />
 
-        <div className="relative mt-20">
+        <div className="relative mt-12 sm:mt-20">
           {/* Connecting line (horizontal on lg, hidden on small where cards stack) */}
           <svg
             className="absolute left-0 top-7 hidden h-2 w-full lg:block"
@@ -85,7 +85,7 @@ export function ProcessSection() {
             </defs>
           </svg>
 
-          <ol className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-6">
             {processPhases.map((phase) => (
               <li key={phase.step} className="process-node relative">
                 <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl border border-hairline bg-surface font-display text-lg font-semibold text-amber">

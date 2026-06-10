@@ -24,7 +24,7 @@ export default function ContactPage() {
       />
 
       <section className="relative z-10 py-12 sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:gap-12">
           {/* Details */}
           <Reveal>
             <div>
@@ -96,7 +96,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map */}
-      <section className="relative z-10 px-6 pb-24">
+      <section className="relative z-10 px-6 pb-16 sm:pb-24">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[var(--radius-card)] border border-hairline">
           <iframe
             src={contact.mapEmbed}

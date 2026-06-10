@@ -29,7 +29,7 @@ export default function ServicesPage() {
 
       {/* Detailed breakdown */}
       <section className="relative z-10 py-8 sm:py-16">
-        <div className="mx-auto max-w-7xl space-y-20 px-6">
+        <div className="mx-auto max-w-7xl space-y-12 px-6 sm:space-y-20">
           {services.map((service, i) => {
             const flip = i % 2 === 1;
             return (

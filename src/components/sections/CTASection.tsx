@@ -12,8 +12,8 @@ export function CTASection({
   subtitle?: string;
 }) {
   return (
-    <section className="relative z-10 px-6 py-24 sm:py-32">
-      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[28px] border border-hairline bg-surface/60 px-8 py-16 text-center sm:px-16">
+    <section className="relative z-10 px-6 py-16 sm:py-32">
+      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[28px] border border-hairline bg-surface/60 px-6 py-12 text-center sm:px-16 sm:py-16">
         {/* layered glow */}
         <div
           aria-hidden

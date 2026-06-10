@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 /** Tech-stack chip cloud with hover lift + border glow. */
 export function TechStackSection() {
   return (
-    <section className="relative z-10 py-24 sm:py-32">
+    <section className="relative z-10 py-16 sm:py-32">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <SectionHeading
           eyebrow="Our toolkit"
@@ -17,7 +17,7 @@ export function TechStackSection() {
         />
 
         <motion.div
-          className="mt-14 flex flex-wrap justify-center gap-3"
+          className="mt-10 flex flex-wrap justify-center gap-3 sm:mt-14"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
